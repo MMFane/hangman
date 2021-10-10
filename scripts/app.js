@@ -4,10 +4,13 @@ const guesses = 5;
 
 const head = document.getElementsByTagName("HEAD")[0];
 const resetBtn = document.querySelector("#reset");
-const lightBtn = document.querySelector("#theme-light");
-lightBtn.disabled = true;
-const darkBtn = document.querySelector("#theme-dark");
-const contrastBtn = document.querySelector("#theme-contrast");
+const lightBtn = document.querySelector("#light");
+const darkBtn = document.querySelector("#dark");
+const contrastBtn = document.querySelector("#contrast");
+const halloweenBtn = document.querySelector("#halloween");
+halloweenBtn.disabled = true;
+
+const themeButtons = [lightBtn, darkBtn, contrastBtn, halloweenBtn];
 const themeLink = document.querySelector("#theme");
 
 window.addEventListener("keypress", function (e) {
@@ -24,27 +27,28 @@ const changeLink = (url) => {
   themeLink.href = url;
 };
 
+const resetThemeButtons = (flag) => {
+  themeButtons.forEach((button) => {
+    button.disabled = flag;
+  });
+};
+
 const changeTheme = (theme) => {
+  resetThemeButtons(false);
   if (theme === "light") {
     changeLink("./styles/theme-light.css");
     lightBtn.disabled = true;
-    darkBtn.disabled = false;
-    contrastBtn.disabled = false;
   } else if (theme === "dark") {
     changeLink("./styles/theme-dark.css");
-    lightBtn.disabled = false;
     darkBtn.disabled = true;
-    contrastBtn.disabled = false;
   } else if (theme === "contrast") {
     changeLink("./styles/theme-contrast.css");
-    lightBtn.disabled = false;
-    darkBtn.disabled = false;
     contrastBtn.disabled = true;
+  } else if (theme === "halloween") {
+    changeLink("./styles/theme-halloween.css");
+    halloweenBtn.disabled = true;
   } else {
     console.log("Error: unknown theme in changeTheme()");
-    lightBtn.disabled = false;
-    darkBtn.disabled = false;
-    contrastBtn.disabled = false;
   }
 };
 
@@ -53,5 +57,6 @@ resetBtn.addEventListener("click", startGame);
 lightBtn.addEventListener("click", () => changeTheme("light"));
 darkBtn.addEventListener("click", () => changeTheme("dark"));
 contrastBtn.addEventListener("click", () => changeTheme("contrast"));
+halloweenBtn.addEventListener("click", () => changeTheme("halloween"));
 
 startGame();
