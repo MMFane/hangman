@@ -12,14 +12,9 @@
 </head>
 <body>
     <div id="game">
-        <div id="cobweb"></div>
-        <aside id="themes">
-            <button id="light">Light Theme</button>
-            <button id="dark">Dark Theme</button>
-            <button id="contrast">High Contrast</button>
-            <button id="halloween">Halloween</button>
-        </aside>
         <h1>Hangman</h1>
+        <div id="cobweb"></div>
+        <button id="reset" style="display: none;">Play Again</button>
         <article id="puzzle"></article>
         <section class="section">
             <div id="guesses"></div>
@@ -28,7 +23,12 @@
             <article id="misses"></article>
             <div id="puzzle-log" class="info"></div>
         </section>
-        <button id="reset" style="display: none;">Play Again</button>
+        <aside id="themes">
+            <button id="light">Light Theme</button>
+            <button id="dark">Dark Theme</button>
+            <button id="contrast">High Contrast</button>
+            <button id="halloween">Halloween</button>
+        </aside>
     </div>
 
     <script src="/scripts/requests.js"></script>

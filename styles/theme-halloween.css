@@ -1,6 +1,6 @@
 :root {
   --background: rgb(14, 12, 19);
-  --background-lighter: rgba(26, 22, 36, 0.5);
+  --background-lighter: rgba(20, 17, 27, 0.9);
   --border: rgba(0, 0, 0, 0.5);
   --button: rgba(0, 0, 0, 0.8);
   --button-hover: rgba(0, 0, 0, 0.4);
@@ -23,12 +23,25 @@ button:disabled {
   filter: blur(2px);
   width: 100%;
   max-width: 1000px;
+  min-width: 400px;
   height: 45%;
   position: absolute;
   left: -200px;
   bottom: 0;
+  z-index: -10;
+}
+
+#game {
+  z-index: 10;
 }
 
 .section {
   background-color: var(--background-lighter);
+}
+
+@media screen and (max-width: 400px) {
+  #cobweb {
+    left: -120px;
+    bottom: -10px;
+  }
 }

@@ -37,7 +37,7 @@ class Hangman {
   printMessage(message) {
     let newMessage = document.createElement("p");
     newMessage.innerHTML = message;
-    this.logElem.append(newMessage);
+    this.logElem.prepend(newMessage);
   }
 
   printPuzzle(puzzle) {
