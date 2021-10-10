@@ -1,0 +1,12 @@
+:root {
+  --background: rgb(43, 31, 40);
+  --border: rgba(0, 0, 0, 0.3);
+  --button: rgba(0, 0, 0, 0.6);
+  --button-hover: rgba(0, 0, 0, 0.4);
+  --button-active: rgba(0, 0, 0, 0.8);
+  --button-disabled: rgba(0, 0, 0, 0.2);
+  --text: white;
+  --text-deemphasize: rgba(256, 150, 200, 0.3);
+  --text-info: rgba(256, 256, 256, 0.5);
+  --warning: rgb(256, 0, 0);
+}

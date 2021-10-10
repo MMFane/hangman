@@ -1,0 +1,21 @@
+:root {
+  --background: black;
+  --border: white;
+  --button: rgba(256, 256, 256, 0.3);
+  --button-hover: rgba(256, 256, 256, 0.1);
+  --button-active: rgba(256, 256, 256, 0.5);
+  --button-disabled: rgba(0, 256, 256, 0.05);
+  --text: white;
+  --text-deemphasize: magenta;
+  --text-info: magenta;
+  --warning: blue;
+}
+
+button {
+  background-color: var(--background);
+  border: 1px solid var(--border);
+}
+
+button:disabled {
+  border: 1px solid var(--text-info);
+}

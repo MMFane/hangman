@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Hangman</title>
+        <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+        <link rel="stylesheet" href="/styles/hangman.css">
+        <link id="theme" rel="stylesheet" type="text/css" href="./styles/theme-light.css">
+        <link href="images/favicon.png" rel="icon">
+    </head>
+    <body>
+        <div id="game">
+            <aside id="themes">
+                <button id="theme-light">Light Theme</button>
+                <button id="theme-dark">Dark Theme</button>
+                <button id="theme-contrast">High Contrast</button>
+            </aside>
+            <h1>Hangman</h1>
+            <article id="puzzle"></article>
+            <section class="section">
+                <div id="guesses"></div>
+            </section>
+            <section class="section">
+                <article id="misses"></article>
+                <div id="puzzle-log" class="info"></div>
+            </section>
+            <button id="reset" style="display: none;">Play Again</button>
+        </div>
+
+        <script src="/scripts/requests.js"></script>
+        <script src="/scripts/hangman-class.js"></script>
+        <script src="/scripts/app.js"></script>
+    </body>
+</html>

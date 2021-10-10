@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Mono", sans-serif;
+}
+
+body {
+  color: var(--text);
+  background-color: var(--background);
+  text-align: center;
+}
+
+h1 {
+  color: var(--text-deemphasize);
+}
+
+button {
+  color: var(--text);
+  background-color: var(--button);
+  border: none;
+  padding: 0.5rem;
+  margin: 1rem;
+}
+
+button:disabled {
+  background-color: var(--button-disabled);
+}
+
+button:hover:enabled {
+  cursor: pointer;
+  background-color: var(--button-hover);
+}
+
+button:active:enabled {
+  cursor: pointer;
+  background-color: var(--button-active);
+}
+
+#game {
+  width: 700px;
+  margin: 10rem auto;
+  padding: 2rem;
+}
+
+#puzzle {
+  font-size: 1.5rem;
+  margin: 2rem;
+  color: var(--text-info);
+}
+
+#puzzle-log {
+  margin-top: 1rem;
+}
+
+#themes {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.info {
+  color: var(--text-info);
+}
+
+.deemphasize {
+  color: var(--text-deemphasize);
+}
+
+.text {
+  color: var(--text);
+}
+
+.section {
+  box-shadow: 0 0 10px var(--border);
+  margin-top: 2rem;
+  padding: 1rem;
+  min-height: 60px;
+  border-radius: 10px;
+}
+
+.warning {
+  color: var(--warning);
+}
