@@ -1,21 +1,34 @@
 :root {
-  --background: black;
-  --border: white;
-  --button: rgba(256, 256, 256, 0.3);
-  --button-hover: rgba(256, 256, 256, 0.1);
-  --button-active: rgba(256, 256, 256, 0.5);
-  --button-disabled: rgba(0, 256, 256, 0.05);
-  --text: white;
-  --text-deemphasize: magenta;
-  --text-info: magenta;
-  --warning: blue;
-}
-
-button {
-  background-color: var(--background);
-  border: 1px solid var(--border);
+  --background: rgb(14, 12, 19);
+  --background-lighter: rgba(26, 22, 36, 0.5);
+  --border: rgba(0, 0, 0, 0.5);
+  --button: rgba(0, 0, 0, 0.8);
+  --button-hover: rgba(0, 0, 0, 0.4);
+  --button-active: rgba(0, 0, 0, 0.95);
+  --button-disabled: rgba(0, 0, 0, 0.2);
+  --text: rgb(255, 224, 167);
+  --text-deemphasize: rgba(212, 135, 72, 0.5);
+  --text-info: rgba(255, 224, 167, 0.5);
+  --warning: rgb(230, 118, 32);
 }
 
 button:disabled {
   border: 1px solid var(--text-info);
+}
+
+#cobweb {
+  background-image: url("../images/cobweb.png");
+  background-size: cover;
+  opacity: 0.1;
+  filter: blur(2px);
+  width: 100%;
+  height: 45%;
+  position: absolute;
+  left: -40%;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.section {
+  background-color: var(--background-lighter);
 }
