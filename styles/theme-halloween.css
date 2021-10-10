@@ -22,11 +22,11 @@ button:disabled {
   opacity: 0.1;
   filter: blur(2px);
   width: 100%;
+  max-width: 1000px;
   height: 45%;
   position: absolute;
-  left: -40%;
+  left: -200px;
   bottom: 0;
-  pointer-events: none;
 }
 
 .section {

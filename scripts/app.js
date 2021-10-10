@@ -24,19 +24,8 @@ window.addEventListener("keypress", function (e) {
   game1.guess(guess);
 });
 
-const startGame = async () => {
-  const puzzle = await getPuzzle(puzzleLength);
-  game1 = new Hangman(puzzle, guesses);
-};
-
 const changeLink = (url) => {
   themeLink.href = url;
-};
-
-const resetThemeButtons = (flag) => {
-  themeBtns.forEach((button) => {
-    button.disabled = flag;
-  });
 };
 
 const changeTheme = (theme) => {
@@ -58,7 +47,17 @@ const changeTheme = (theme) => {
   }
 };
 
+const resetThemeButtons = (flag) => {
+  themeBtns.forEach((button) => {
+    button.disabled = flag;
+  });
+};
+
+const startGame = async () => {
+  const puzzle = await getPuzzle(puzzleLength);
+  game1 = new Hangman(puzzle, guesses);
+};
+
 // set up buttons
 resetBtn.addEventListener("click", startGame);
-
 startGame();
