@@ -1,32 +1,37 @@
-<html>
-    <head>
-        <title>Hangman</title>
-        <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
-        <link rel="stylesheet" href="/styles/hangman.css">
-        <link id="theme" rel="stylesheet" type="text/css" href="./styles/theme-light.css">
-        <link href="images/favicon.png" rel="icon">
-    </head>
-    <body>
-        <div id="game">
-            <aside id="themes">
-                <button id="theme-light">Light Theme</button>
-                <button id="theme-dark">Dark Theme</button>
-                <button id="theme-contrast">High Contrast</button>
-            </aside>
-            <h1>Hangman</h1>
-            <article id="puzzle"></article>
-            <section class="section">
-                <div id="guesses"></div>
-            </section>
-            <section class="section">
-                <article id="misses"></article>
-                <div id="puzzle-log" class="info"></div>
-            </section>
-            <button id="reset" style="display: none;">Play Again</button>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+    <link rel="stylesheet" href="/styles/hangman.css">
+    <link id="theme" rel="stylesheet" type="text/css" href="./styles/theme-halloween.css">
+    <link href="images/favicon.png" rel="icon">
+</head>
+<body>
+    <div id="game">
+        <aside id="themes">
+            <button id="light">Light Theme</button>
+            <button id="dark">Dark Theme</button>
+            <button id="contrast">High Contrast</button>
+            <button id="halloween">Halloween</button>
+        </aside>
+        <h1>Hangman</h1>
+        <article id="puzzle"></article>
+        <section class="section">
+            <div id="guesses"></div>
+        </section>
+        <section class="section">
+            <article id="misses"></article>
+            <div id="puzzle-log" class="info"></div>
+        </section>
+        <button id="reset" style="display: none;">Play Again</button>
+        <div id="cobweb"></div>
+    </div>
 
-        <script src="/scripts/requests.js"></script>
-        <script src="/scripts/hangman-class.js"></script>
-        <script src="/scripts/app.js"></script>
-    </body>
-</html>
+    <script src="/scripts/requests.js"></script>
+    <script src="/scripts/hangman-class.js"></script>
+    <script src="/scripts/app.js"></script>
+</body>
