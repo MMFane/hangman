@@ -8,16 +8,16 @@ const urlsEnum = [
   "./styles/theme-contrast.css",
   "./styles/theme-halloween.css",
 ];
-
+const startingTheme = 3;
 const resetBtn = document.querySelector("#reset");
-const lightBtn = document.querySelector(`#${themesEnum[0]}`);
-const darkBtn = document.querySelector(`#${themesEnum[1]}`);
-const contrastBtn = document.querySelector(`#${themesEnum[2]}`);
-const halloweenBtn = document.querySelector(`#${themesEnum[3]}`);
-halloweenBtn.disabled = true;
-
-const themeButtons = [lightBtn, darkBtn, contrastBtn, halloweenBtn];
+const themeBtns = [];
 const themeLink = document.querySelector("#theme");
+
+for (let i = 0; i < themesEnum.length; i++) {
+  themeBtns.push(document.querySelector(`#${themesEnum[i]}`));
+  themeBtns[i].addEventListener("click", () => changeTheme(themesEnum[i]));
+}
+themeBtns[startingTheme].disabled = true;
 
 window.addEventListener("keypress", function (e) {
   const guess = String.fromCharCode(e.charCode);
@@ -34,35 +34,31 @@ const changeLink = (url) => {
 };
 
 const resetThemeButtons = (flag) => {
-  themeButtons.forEach((button) => {
+  themeBtns.forEach((button) => {
     button.disabled = flag;
   });
 };
 
 const changeTheme = (theme) => {
   resetThemeButtons(false);
-  if (theme === themesEnum[0]) {
+  themeFound = false;
+  for (let i = 0; i < themeBtns.length; i++) {
+    if (theme === themesEnum[i]) {
+      themeFound = true;
+      changeLink(`./styles/theme-${themesEnum[i]}.css`);
+      themeBtns[i].disabled = true;
+    }
+  }
+
+  if (!themeFound) {
+    //default to light theme
+    console.error("Error: unknown theme in changeTheme()");
     changeLink(`./styles/theme-${themesEnum[0]}.css`);
-    lightBtn.disabled = true;
-  } else if (theme === themesEnum[1]) {
-    changeLink(`./styles/theme-${themesEnum[1]}.css`);
-    darkBtn.disabled = true;
-  } else if (theme === themesEnum[2]) {
-    changeLink(`./styles/theme-${themesEnum[2]}.css`);
-    contrastBtn.disabled = true;
-  } else if (theme === themesEnum[3]) {
-    changeLink(`./styles/theme-${themesEnum[3]}.css`);
-    halloweenBtn.disabled = true;
-  } else {
-    console.log("Error: unknown theme in changeTheme()");
+    themeBtns[0].disabled = true;
   }
 };
 
 // set up buttons
 resetBtn.addEventListener("click", startGame);
-lightBtn.addEventListener("click", () => changeTheme(themesEnum[0]));
-darkBtn.addEventListener("click", () => changeTheme(themesEnum[1]));
-contrastBtn.addEventListener("click", () => changeTheme(themesEnum[2]));
-halloweenBtn.addEventListener("click", () => changeTheme(themesEnum[3]));
 
 startGame();
