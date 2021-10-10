@@ -2,7 +2,6 @@ let game1;
 const puzzleLength = "2";
 const guesses = 5;
 
-const head = document.getElementsByTagName("HEAD")[0];
 const resetBtn = document.querySelector("#reset");
 const lightBtn = document.querySelector("#light");
 const darkBtn = document.querySelector("#dark");
