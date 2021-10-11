@@ -8,7 +8,9 @@ const urlsEnum = [
   "./styles/theme-contrast.css",
   "./styles/theme-halloween.css",
 ];
+const puzzleCharsEnum = ["_", "_", "_", "X"];
 const startingTheme = 3;
+puzzleChar = puzzleCharsEnum[startingTheme];
 const resetBtn = document.querySelector("#reset");
 const themeBtns = [];
 const themeLink = document.querySelector("#theme");
@@ -36,6 +38,7 @@ const changeTheme = (theme) => {
       themeFound = true;
       changeLink(`./styles/theme-${themesEnum[i]}.css`);
       themeBtns[i].disabled = true;
+      puzzleChar = puzzleCharsEnum[i];
     }
   }
 
@@ -55,7 +58,7 @@ const resetThemeButtons = (flag) => {
 
 const startGame = async () => {
   const puzzle = await getPuzzle(puzzleLength);
-  game1 = new Hangman(puzzle, guesses);
+  game1 = new Hangman(puzzle, guesses, puzzleChar);
 };
 
 // set up buttons

@@ -1,5 +1,5 @@
 class Hangman {
-  constructor(word, maxMisses) {
+  constructor(word, maxMisses, puzzleChar) {
     this.guessesElem = document.querySelector("#guesses");
     this.logElem = document.querySelector("#puzzle-log");
     this.missesElem = document.querySelector("#misses");
@@ -15,6 +15,7 @@ class Hangman {
 
     this.reset();
     this.printMessage(`Game started! Type a letter to guess.`);
+    this.puzzleChar = puzzleChar;
     this.getPuzzleAscii();
     this.printMisses(this.misses);
     this.printGuesses();
@@ -89,7 +90,7 @@ class Hangman {
     this.word.forEach((letter) => {
       const guessed = this.guessedLetters.includes(letter);
       if (this.isLowercaseLetter(letter) && !guessed) {
-        puzzle += "*";
+        puzzle += this.puzzleChar;
       } else {
         puzzle += `<span class="text">${letter}</span>`;
       }

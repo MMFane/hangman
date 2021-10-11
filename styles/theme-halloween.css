@@ -16,7 +16,7 @@ button:disabled {
   border: 1px solid var(--text-info);
 }
 
-#cobweb {
+#theme-image {
   background-image: url("../images/cobweb.png");
   background-size: cover;
   opacity: 0.1;
