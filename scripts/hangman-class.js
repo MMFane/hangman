@@ -90,7 +90,7 @@ class Hangman {
     this.word.forEach((letter) => {
       const guessed = this.guessedLetters.includes(letter);
       if (this.isLowercaseLetter(letter) && !guessed) {
-        puzzle += this.puzzleChar;
+        puzzle += `<span class="puzzle-char">${this.puzzleChar}</span>`;
       } else {
         puzzle += `<span class="text">${letter}</span>`;
       }

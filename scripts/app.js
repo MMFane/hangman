@@ -9,9 +9,10 @@ const urlsEnum = [
   "./styles/theme-halloween.css",
 ];
 const puzzleCharsEnum = ["_", "_", "_", "X"];
+const halloweenRotations = [];
+const resetBtn = document.querySelector("#reset");
 const startingTheme = 3;
 puzzleChar = puzzleCharsEnum[startingTheme];
-const resetBtn = document.querySelector("#reset");
 const themeBtns = [];
 const themeLink = document.querySelector("#theme");
 
@@ -24,6 +25,7 @@ themeBtns[startingTheme].disabled = true;
 window.addEventListener("keypress", function (e) {
   const guess = String.fromCharCode(e.charCode);
   game1.guess(guess);
+  reapplyRotations();
 });
 
 const changeLink = (url) => {
@@ -42,12 +44,40 @@ const changeTheme = (theme) => {
     }
   }
 
+  // Halloween-specific
+  if (theme === themesEnum[3]) {
+    reapplyRotations();
+  }
+
   if (!themeFound) {
     //default to light theme
     console.error("Error: unknown theme in changeTheme()");
     changeLink(`./styles/theme-${themesEnum[0]}.css`);
     themeBtns[0].disabled = true;
   }
+};
+
+const rotateRandomly = () => {
+  let randomNum;
+  let odd = true;
+  const lowest = -20;
+  const highest = 20;
+  const puzzleChars = document.querySelectorAll("#puzzle span");
+  game1.word.forEach((letter, index) => {
+    randomNum = odd ? Math.random() * lowest : Math.random() * highest;
+    halloweenRotations.push(randomNum);
+    puzzleChars[index].style.transform = `rotate(${randomNum}deg)`;
+    odd = !odd;
+  });
+};
+
+const reapplyRotations = () => {
+  const puzzleChars = document.querySelectorAll("#puzzle span");
+  game1.word.forEach((letter, index) => {
+    puzzleChars[
+      index
+    ].style.transform = `rotate(${halloweenRotations[index]}deg)`;
+  });
 };
 
 const resetThemeButtons = (flag) => {
@@ -59,6 +89,7 @@ const resetThemeButtons = (flag) => {
 const startGame = async () => {
   const puzzle = await getPuzzle(puzzleLength);
   game1 = new Hangman(puzzle, guesses, puzzleChar);
+  rotateRandomly();
 };
 
 // set up buttons
