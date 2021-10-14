@@ -5,6 +5,12 @@ class Hangman {
     this.missesElem = document.querySelector("#misses");
     this.puzzleElem = document.querySelector("#puzzle");
     this.resetButtonElem = document.querySelector("#reset");
+    this.hangmanHead = document.querySelector("#hangman #head");
+    this.hangmanBody = document.querySelector("#hangman #body");
+    this.hangmanArmLeft = document.querySelector("#hangman #arm-left");
+    this.hangmanArmRight = document.querySelector("#hangman #arm-right");
+    this.hangmanLegLeft = document.querySelector("#hangman #leg-left");
+    this.hangmanLegRight = document.querySelector("#hangman #leg-right");
 
     const lowercase = word.toLowerCase();
     this.word = lowercase.split("");
@@ -29,6 +35,8 @@ class Hangman {
     this.clearLog();
     this.resetButtonElem.style.display = "none";
     this.missesElem.classList.remove("warning");
+    this.missesElem.classList.remove("deemphasize");
+    this.resetHangman();
   }
 
   showReset() {
@@ -49,11 +57,45 @@ class Hangman {
     this.guessesElem.innerHTML = `${this.guessedLettersPresentation}`;
   }
 
-  printMisses(misses) {
-    this.missesElem.innerText = `Misses left: ${misses}`;
-    if (misses < 2) {
+  printMisses() {
+    this.missesElem.innerText = `Misses left: ${this.misses}`;
+    if (this.misses < 2) {
       this.missesElem.classList.add("warning");
     }
+    this.printHangman();
+  }
+
+  printHangman() {
+    // To do: simplify with a nodelist (can't apply styles)
+    switch (this.misses) {
+      case 5:
+        this.hangmanHead.style.display = "block";
+        break;
+      case 4:
+        this.hangmanBody.style.display = "block";
+        break;
+      case 3:
+        this.hangmanArmLeft.style.display = "block";
+        break;
+      case 2:
+        this.hangmanArmRight.style.display = "block";
+        break;
+      case 1:
+        this.hangmanLegLeft.style.display = "block";
+        break;
+      case 0:
+        this.hangmanLegRight.style.display = "block";
+        break;
+    }
+  }
+
+  resetHangman() {
+    this.hangmanHead.style.display = "none";
+    this.hangmanBody.style.display = "none";
+    this.hangmanArmLeft.style.display = "none";
+    this.hangmanArmRight.style.display = "none";
+    this.hangmanLegLeft.style.display = "none";
+    this.hangmanLegRight.style.display = "none";
   }
 
   setStatus() {
@@ -69,9 +111,11 @@ class Hangman {
 
   setStatusMessage() {
     const word = this.word.join("");
-    this.printMisses(this.misses);
+    this.printMisses();
     if (this.gameStatus === "won") {
-      this.printMessage("You won! Nice job");
+      this.printMessage(`<span class="text">You won! Nice job</span>`);
+      this.missesElem.classList.remove("warning");
+      this.missesElem.classList.add("deemphasize");
       this.showReset();
     } else if (this.gameStatus === "failed") {
       this.printMessage(

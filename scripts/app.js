@@ -1,6 +1,6 @@
 let game1;
 const puzzleLength = "2";
-const guesses = 5;
+const guesses = 6;
 const themesEnum = ["light", "dark", "contrast", "halloween"];
 const urlsEnum = [
   "./styles/theme-light.css",
