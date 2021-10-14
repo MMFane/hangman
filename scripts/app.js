@@ -12,7 +12,8 @@ const puzzleCharsEnum = ["_", "_", "_", "X"];
 const halloweenRotations = [];
 const resetBtn = document.querySelector("#reset");
 const startingTheme = 3;
-puzzleChar = puzzleCharsEnum[startingTheme];
+let puzzleChar = puzzleCharsEnum[startingTheme];
+let puzzle = null;
 const themeBtns = [];
 const themeLink = document.querySelector("#theme");
 
@@ -55,6 +56,8 @@ const changeTheme = (theme) => {
     changeLink(`./styles/theme-${themesEnum[0]}.css`);
     themeBtns[0].disabled = true;
   }
+
+  restartGame();
 };
 
 const rotateRandomly = () => {
@@ -87,10 +90,16 @@ const resetThemeButtons = (flag) => {
 };
 
 const startGame = async () => {
-  const puzzle = await getPuzzle(puzzleLength);
+  puzzle = await getPuzzle(puzzleLength);
   game1 = new Hangman(puzzle, guesses, puzzleChar);
   rotateRandomly();
 };
+
+const restartGame = () => {
+  game1 = new Hangman(puzzle, guesses, puzzleChar);
+  reapplyRotations();
+};
+// to do - restart game with new puzzle char
 
 // set up buttons
 resetBtn.addEventListener("click", startGame);
