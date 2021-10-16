@@ -84,9 +84,15 @@ button:active:enabled {
   color: var(--warning);
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 600px) {
   #game {
+    width: 100%;
     margin: 1rem auto;
+    padding: 0.5rem;
+  }
+
+  #puzzle {
+    margin: 1rem 0;
   }
 
   #themes {
