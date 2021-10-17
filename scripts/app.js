@@ -54,11 +54,6 @@ const changeTheme = (theme) => {
     }
   }
 
-  // Halloween-specific
-  if (theme === themesEnum[3]) {
-    reapplyRotations();
-  }
-
   if (!themeFound) {
     //default to light theme
     console.error("Error: unknown theme in changeTheme()");
@@ -66,7 +61,11 @@ const changeTheme = (theme) => {
     themeBtns[0].disabled = true;
   }
 
-  restartGame();
+  game1.changePuzzleChar(puzzleChar);
+  // Halloween-specific
+  if (theme === themesEnum[3]) {
+    reapplyRotations();
+  }
 };
 
 const rotateRandomly = () => {
@@ -102,12 +101,6 @@ const startGame = async () => {
   puzzle = await getPuzzle(puzzleLength);
   game1 = new Hangman(puzzle, guesses, puzzleChar);
   rotateRandomly();
-  keyboard.reset();
-};
-
-const restartGame = () => {
-  game1 = new Hangman(puzzle, guesses, puzzleChar);
-  reapplyRotations();
   keyboard.reset();
 };
 

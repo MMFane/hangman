@@ -27,6 +27,11 @@ class Hangman {
     this.printGuesses();
   }
 
+  changePuzzleChar(char) {
+    this.puzzleChar = char;
+    this.getPuzzleAscii();
+  }
+
   clearLog() {
     this.logElem.innerText = "";
   }
