@@ -70,6 +70,13 @@ button:active:enabled {
 
 .section.keyboard {
   display: none;
+  padding: 0.25rem;
+}
+
+.section.keyboard button {
+  margin: 0.1rem;
+  min-width: 48px;
+  min-height: 48px;
 }
 
 .text {
