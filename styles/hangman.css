@@ -68,6 +68,10 @@ button:active:enabled {
   color: var(--text-deemphasize);
 }
 
+.section.keyboard {
+  display: none;
+}
+
 .text {
   color: var(--text);
 }
@@ -86,6 +90,16 @@ button.used {
 
 .warning {
   color: var(--warning);
+}
+
+@media screen and (max-width: 1024px) {
+  .section.guesses {
+    display: none;
+  }
+
+  .section.keyboard {
+    display: block;
+  }
 }
 
 @media screen and (max-width: 600px) {
