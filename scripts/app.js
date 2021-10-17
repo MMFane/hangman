@@ -16,6 +16,7 @@ let puzzleChar = puzzleCharsEnum[startingTheme];
 let puzzle = null;
 const themeBtns = [];
 const themeLink = document.querySelector("#theme");
+const keyboard = new mobileKeyboard();
 
 for (let i = 0; i < themesEnum.length; i++) {
   themeBtns.push(document.querySelector(`#${themesEnum[i]}`));
@@ -23,11 +24,19 @@ for (let i = 0; i < themesEnum.length; i++) {
 }
 themeBtns[startingTheme].disabled = true;
 
-window.addEventListener("keypress", function (e) {
-  const guess = String.fromCharCode(e.charCode);
-  game1.guess(guess);
-  reapplyRotations();
+window.addEventListener("keypress", (e) => {
+  makeGuess(String.fromCharCode(e.charCode));
 });
+
+window.addEventListener("mobile-keyboard-press", (e) => {
+  makeGuess(e.detail.letter);
+});
+
+const makeGuess = (letter) => {
+  game1.guess(letter);
+  reapplyRotations();
+  keyboard.useLetter(letter);
+};
 
 const changeLink = (url) => {
   themeLink.href = url;
@@ -93,13 +102,14 @@ const startGame = async () => {
   puzzle = await getPuzzle(puzzleLength);
   game1 = new Hangman(puzzle, guesses, puzzleChar);
   rotateRandomly();
+  keyboard.reset();
 };
 
 const restartGame = () => {
   game1 = new Hangman(puzzle, guesses, puzzleChar);
   reapplyRotations();
+  keyboard.reset();
 };
-// to do - restart game with new puzzle char
 
 // set up buttons
 resetBtn.addEventListener("click", startGame);

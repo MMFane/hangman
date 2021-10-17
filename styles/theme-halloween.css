@@ -16,6 +16,10 @@ button:disabled {
   border: 1px solid var(--text-info);
 }
 
+button.used:disabled {
+  border: none;
+}
+
 #theme-image {
   background-image: url("../images/cobweb.png");
   background-size: cover;

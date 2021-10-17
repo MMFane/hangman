@@ -72,6 +72,10 @@ button:active:enabled {
   color: var(--text);
 }
 
+button.used {
+  opacity: 0.5;
+}
+
 .section {
   box-shadow: 0 0 10px var(--border);
   margin-top: 2rem;
