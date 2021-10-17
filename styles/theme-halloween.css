@@ -119,9 +119,15 @@ button.used:disabled {
   background-color: var(--background-lighter);
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 600px) {
   #cobweb {
     left: -120px;
     bottom: -10px;
+  }
+
+  .puzzle-char {
+    padding: 0.25rem;
+    margin: 0.1rem;
+    font-size: 1rem;
   }
 }
