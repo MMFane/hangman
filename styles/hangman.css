@@ -70,17 +70,6 @@ button:active:enabled {
   color: var(--text-deemphasize);
 }
 
-.section.keyboard {
-  display: none;
-  padding: 0.25rem;
-}
-
-.section.keyboard button {
-  margin: 0.1rem;
-  min-width: 48px;
-  min-height: 48px;
-}
-
 .text {
   color: var(--text);
 }
@@ -95,6 +84,17 @@ button.used {
   padding: 1rem;
   min-height: 60px;
   border-radius: 10px;
+}
+
+.section.keyboard {
+  display: none;
+  padding: 0.25rem;
+}
+
+.section.keyboard button {
+  margin: 0.1rem;
+  min-width: 48px;
+  min-height: 48px;
 }
 
 .warning {
@@ -125,5 +125,9 @@ button.used {
   #themes {
     position: relative;
     margin: 1rem 0 0 0;
+  }
+
+  .section {
+    margin-top: 0.75rem;
   }
 }
