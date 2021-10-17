@@ -13,6 +13,8 @@ body {
 
 h1 {
   color: var(--text-deemphasize);
+  opacity: 0;
+  height: 0;
 }
 
 button {
